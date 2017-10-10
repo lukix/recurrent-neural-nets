@@ -146,6 +146,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActivationNode.h" />
     <ClInclude Include="LogNode.h" />
     <ClInclude Include="MulNode.h" />
     <ClInclude Include="Node.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ActivationNode.cpp" />
     <ClCompile Include="LogNode.cpp" />
     <ClCompile Include="MulNode.cpp" />
     <ClCompile Include="Node.cpp" />

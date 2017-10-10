@@ -6,7 +6,6 @@
 Node::Node() {
 	this->inputVectors.reserve(this->inputStreamsNumber);
 	this->outputErrorsVectors.reserve(this->outputStreamsNumber);
-	std::cout << "Node()" << std::endl;
 }
 
 Node::~Node() {
@@ -17,6 +16,7 @@ void Node::propagate(std::vector<double> inputValues) {
 	this->inputVectors.push_back(inputValues);
 	if (this->inputVectors.size() == this->inputStreamsNumber) {
 		std::vector<std::vector<double>> resultVectors = this->processInputs();
+		this->outputVectorsHistory.push(resultVectors);
 		for (int i = 0; i < this->nextNodes.size(); i++) {
 			this->nextNodes[i]->propagate(resultVectors[i]);
 		}
@@ -28,6 +28,7 @@ void Node::backpropagate(std::vector<double> outputErrors) {
 	this->outputErrorsVectors.push_back(outputErrors);
 	if (outputErrors.size() == this->outputStreamsNumber) {
 		std::vector<std::vector<double>> resultVectors = this->processOutputErrors();
+		this->outputVectorsHistory.pop();
 		for (int i = 0; i < this->prevNodes.size(); i++) {
 			this->prevNodes[i]->backpropagate(resultVectors[i]);
 		}
@@ -48,6 +49,10 @@ void Node::connectInput(Node * prevNode) {
 		throw std::exception("Trying to connect too many input nodes");
 	}
 	this->prevNodes.push_back(prevNode);
+}
+
+std::vector<std::vector<double>> Node::getLastOutput() {
+	return this->outputVectorsHistory.top();
 }
 
 std::vector<std::vector<double>> Node::processInputs() {

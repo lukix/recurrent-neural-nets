@@ -51,6 +51,11 @@ void Node::connectInput(Node * prevNode) {
 	this->prevNodes.push_back(prevNode);
 }
 
+void Node::createConnectionWith(Node * nextNode) {
+	this->connectOutput(nextNode);
+	nextNode->connectInput(this);
+}
+
 std::vector<std::vector<double>> Node::getLastOutput() {
 	return this->outputVectorsHistory.top();
 }

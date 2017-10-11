@@ -9,6 +9,7 @@ public:
 	void backpropagate(std::vector<double> outputErrors);
 	void connectOutput(Node* nextNode);
 	void connectInput(Node* prevNode);
+	void createConnectionWith(Node* nextNode);
 	std::vector<std::vector<double>> getLastOutput();
 protected:
 	virtual std::vector<std::vector<double>> processInputs();

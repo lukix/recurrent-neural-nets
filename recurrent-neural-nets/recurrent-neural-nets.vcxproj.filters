@@ -36,6 +36,9 @@
     <ClInclude Include="ActivationNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WeightedSumsNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -54,6 +57,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ActivationNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WeightedSumsNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

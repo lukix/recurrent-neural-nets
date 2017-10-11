@@ -6,6 +6,7 @@ public:
 	WeightedSumsNode(int inputsCount, int outputsCount);
 	~WeightedSumsNode();
 	void clearWeightsErrors();
+	void adjustWeights(double learningRate);
 protected:
 	virtual std::vector<std::vector<double>> processInputs();
 	virtual std::vector<std::vector<double>> processOutputErrors();

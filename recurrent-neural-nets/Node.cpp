@@ -26,7 +26,7 @@ void Node::propagate(std::vector<double> inputValues) {
 
 void Node::backpropagate(std::vector<double> outputErrors) {
 	this->outputErrorsVectors.push_back(outputErrors);
-	if (outputErrors.size() == this->outputStreamsNumber) {
+	if (this->outputErrorsVectors.size() == this->outputStreamsNumber) {
 		std::vector<std::vector<double>> resultVectors = this->processOutputErrors();
 		this->outputVectorsHistory.pop();
 		for (int i = 0; i < this->prevNodes.size(); i++) {

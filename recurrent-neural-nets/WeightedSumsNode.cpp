@@ -28,6 +28,15 @@ void WeightedSumsNode::clearWeightsErrors() {
 	}
 }
 
+void WeightedSumsNode::adjustWeights(double learningRate) {
+	for (int i = 0; i < this->weightsErrors.size(); i++) {
+		for (int j = 0; j < this->weightsErrors[i].size(); j++) {
+			this->weights[i][j] -= learningRate * this->weightsErrors[i][j];
+		}
+	}
+	this->clearWeightsErrors();
+}
+
 std::vector<std::vector<double>> WeightedSumsNode::processInputs() {
 	std::vector<std::vector<double>> result;
 	result.push_back(std::vector<double>());	//One output vector
@@ -44,9 +53,6 @@ std::vector<std::vector<double>> WeightedSumsNode::processInputs() {
 }
 
 std::vector<std::vector<double>> WeightedSumsNode::processOutputErrors() {
-	std::vector<std::vector<double>> result;
-	result.push_back(std::vector<double>());
-
 	//Calculate weights errors
 	std::vector<double> lastInputVector = this->prevNodes[0]->getLastOutput()[0];
 	for (int i = 0; i < this->weightsErrors.size(); i++) {
@@ -57,8 +63,10 @@ std::vector<std::vector<double>> WeightedSumsNode::processOutputErrors() {
 	}
 
 	//Create data to return
+	std::vector<std::vector<double>> result;
+	result.push_back(std::vector<double>());
 	result[0].reserve(this->weights[0].size() - 1);	//Number of inputs excluding bias neuron
-	for (int j = 0; j < this->weights[0].size(); j++) {
+	for (int j = 1; j < this->weights[0].size(); j++) {
 		double value = 0.0;
 		for (int i = 0; i < this->weights.size(); i++) {
 			value += this->outputErrorsVectors[0][i] * this->weights[i][j];

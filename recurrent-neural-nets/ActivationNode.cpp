@@ -42,10 +42,10 @@ std::vector<std::vector<double>> ActivationNode::processInputs() {
 std::vector<std::vector<double>> ActivationNode::processOutputErrors() {
 	std::vector<std::vector<double>> result;
 	result.push_back(std::vector<double>());
-	result[0].reserve(this->inputVectors[0].size());
+	result[0].reserve(this->outputErrorsVectors[0].size());
 	std::vector<double> lastInputVector = this->prevNodes[0]->getLastOutput()[0];
-	for (int i = 0; i < this->inputVectors[0].size(); i++) {
-		result[0].push_back(this->inputVectors[0][i] * this->activationFuncDerivative(lastInputVector[i]));
+	for (int i = 0; i < this->outputErrorsVectors[0].size(); i++) {
+		result[0].push_back(this->outputErrorsVectors[0][i] * this->activationFuncDerivative(lastInputVector[i]));
 	}
 	return result;
 }

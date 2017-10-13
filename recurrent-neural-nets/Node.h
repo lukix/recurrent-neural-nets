@@ -23,4 +23,3 @@ protected:
 	unsigned int inputStreamsNumber = 1;
 	unsigned int outputStreamsNumber = 1;
 };
-

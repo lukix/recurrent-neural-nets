@@ -11,6 +11,7 @@ public:
 	void connectInput(Node* prevNode);
 	void createConnectionWith(Node* nextNode);
 	std::vector<std::vector<double>> getLastOutput();
+	static void connectInSequence(std::vector<Node*> nodes);
 protected:
 	virtual std::vector<std::vector<double>> processInputs();
 	virtual std::vector<std::vector<double>> processOutputErrors();

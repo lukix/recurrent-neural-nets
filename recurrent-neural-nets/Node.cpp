@@ -60,6 +60,12 @@ std::vector<std::vector<double>> Node::getLastOutput() {
 	return this->outputVectorsHistory.top();
 }
 
+void Node::connectInSequence(std::vector<Node*> nodes) {
+	for (int i = 0; i < nodes.size() - 1; i++) {
+		nodes[i]->createConnectionWith(nodes[i + 1]);
+	}
+}
+
 std::vector<std::vector<double>> Node::processInputs() {
 	return this->inputVectors;
 }

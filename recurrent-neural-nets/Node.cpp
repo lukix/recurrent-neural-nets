@@ -16,11 +16,11 @@ void Node::propagate(std::vector<double> inputValues) {
 	this->inputVectors.push_back(inputValues);
 	if (this->inputVectors.size() == this->inputStreamsNumber) {
 		std::vector<std::vector<double>> resultVectors = this->processInputs();
+		this->inputVectors.clear();
 		this->outputVectorsHistory.push(resultVectors);
 		for (int i = 0; i < this->nextNodes.size(); i++) {
 			this->nextNodes[i]->propagate(resultVectors[i]);
 		}
-		this->inputVectors.clear();
 	}
 }
 

@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="ActivationNode.h" />
     <ClInclude Include="LogNode.h" />
+    <ClInclude Include="MergeNode.h" />
     <ClInclude Include="MulNode.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="stdafx.h" />
@@ -158,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="ActivationNode.cpp" />
     <ClCompile Include="LogNode.cpp" />
+    <ClCompile Include="MergeNode.cpp" />
     <ClCompile Include="MulNode.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="main.cpp" />

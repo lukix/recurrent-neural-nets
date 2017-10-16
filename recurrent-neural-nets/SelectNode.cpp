@@ -24,7 +24,7 @@ std::vector<std::vector<double>> SelectNode::processOutputErrors() {
 	int index = 0;
 	for (int i = 0; i < this->mask.size(); i++) {
 		if (this->mask[i]) {
-			result.push_back(this->inputVectors[0][index]);
+			result.push_back(this->outputErrorsVectors[0][index]);
 			index++;
 		} else {
 			result.push_back(0.0);

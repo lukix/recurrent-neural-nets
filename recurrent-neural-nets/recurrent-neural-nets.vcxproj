@@ -152,6 +152,7 @@
     <ClInclude Include="MergeNode.h" />
     <ClInclude Include="MulNode.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="SelectNode.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="SumNode.h" />
     <ClInclude Include="targetver.h" />
@@ -166,6 +167,7 @@
     <ClCompile Include="MulNode.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="SelectNode.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

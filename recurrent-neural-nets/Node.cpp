@@ -28,11 +28,11 @@ void Node::backpropagate(std::vector<double> outputErrors) {
 	this->outputErrorsVectors.push_back(outputErrors);
 	if (this->outputErrorsVectors.size() == this->outputStreamsNumber) {
 		std::vector<std::vector<double>> resultVectors = this->processOutputErrors();
+		this->outputErrorsVectors.clear();
 		this->outputVectorsHistory.pop();
 		for (int i = 0; i < this->prevNodes.size(); i++) {
 			this->prevNodes[i]->backpropagate(resultVectors[i]);
 		}
-		this->outputErrorsVectors.clear();
 	}
 }
 

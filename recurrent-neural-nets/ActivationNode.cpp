@@ -29,6 +29,14 @@ double ActivationNode::hyperbolicTangentDerivative(double x) {
 	return 1.0 - pow(sinh(x) / cosh(x), 2);
 }
 
+double ActivationNode::relu(double x) {
+	return x > 0.0 ? x : 0.1 * x;
+}
+
+double ActivationNode::reluDerivative(double x) {
+	return x > 0.0 ? 1.0 : 0.1;
+}
+
 std::vector<std::vector<double>> ActivationNode::processInputs() {
 	std::vector<std::vector<double>> result;
 	result.push_back(std::vector<double>());

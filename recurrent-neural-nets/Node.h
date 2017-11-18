@@ -10,6 +10,7 @@ public:
 	void connectOutput(Node* nextNode);
 	void connectInput(Node* prevNode);
 	void createConnectionWith(Node* nextNode);
+	void clearInputVectors();
 	std::vector<std::vector<double>> getLastOutput();
 	static void connectInSequence(std::vector<Node*> nodes);
 protected:

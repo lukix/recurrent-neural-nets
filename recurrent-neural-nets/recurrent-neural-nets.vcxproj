@@ -146,8 +146,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActivationFunctions.h" />
     <ClInclude Include="ActivationNode.h" />
     <ClInclude Include="BranchNode.h" />
+    <ClInclude Include="Callable.h" />
     <ClInclude Include="LogNode.h" />
     <ClInclude Include="MergeNode.h" />
     <ClInclude Include="MulNode.h" />
@@ -162,6 +164,7 @@
   <ItemGroup>
     <ClCompile Include="ActivationNode.cpp" />
     <ClCompile Include="BranchNode.cpp" />
+    <ClCompile Include="Callable.cpp" />
     <ClCompile Include="LogNode.cpp" />
     <ClCompile Include="MergeNode.cpp" />
     <ClCompile Include="MulNode.cpp" />

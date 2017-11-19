@@ -54,6 +54,12 @@
     <ClInclude Include="SelectNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Callable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivationFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -90,6 +96,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SelectNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Callable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

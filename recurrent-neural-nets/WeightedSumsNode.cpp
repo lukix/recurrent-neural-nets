@@ -49,12 +49,15 @@ std::vector<std::vector<double>> WeightedSumsNode::processInputs() {
 		}
 		result[0].push_back(outputValue);
 	}
+	this->lastInputVectors.push(this->inputVectors[0]);
 	return result;
 }
 
 std::vector<std::vector<double>> WeightedSumsNode::processOutputErrors() {
 	//Calculate weights errors
-	std::vector<double> lastInputVector = this->prevNodes[0]->getLastOutput()[0];
+	std::vector<double> lastInputVector = this->lastInputVectors.top();
+	this->lastInputVectors.pop();
+
 	for (int i = 0; i < this->weightsErrors.size(); i++) {
 		this->weightsErrors[i][0] += this->outputErrorsVectors[0][i] * 1.0;	//Weights connected to bias neuron
 		for (int j = 1; j < this->weightsErrors[i].size(); j++) {

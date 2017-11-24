@@ -16,8 +16,9 @@ void Node::propagate(std::vector<double> inputValues) {
 	this->inputVectors.push_back(inputValues);
 	if (this->inputVectors.size() == this->inputStreamsNumber) {
 		std::vector<std::vector<double>> resultVectors = this->processInputs();
+		this->lastInputVectors.push(this->inputVectors);
 		this->inputVectors.clear();
-		this->outputVectorsHistory.push(resultVectors);
+		this->lastOutput = resultVectors;
 		for (int i = 0; i < this->nextNodes.size(); i++) {
 			this->nextNodes[i]->propagate(resultVectors[i]);
 		}
@@ -29,7 +30,7 @@ void Node::backpropagate(std::vector<double> outputErrors) {
 	if (this->outputErrorsVectors.size() == this->outputStreamsNumber) {
 		std::vector<std::vector<double>> resultVectors = this->processOutputErrors();
 		this->outputErrorsVectors.clear();
-		this->outputVectorsHistory.pop();
+		this->lastInputVectors.pop();
 		for (int i = 0; i < this->prevNodes.size(); i++) {
 			this->prevNodes[i]->backpropagate(resultVectors[i]);
 		}
@@ -61,7 +62,7 @@ void Node::clearInputVectors() {
 }
 
 std::vector<std::vector<double>> Node::getLastOutput() {
-	return this->outputVectorsHistory.top();
+	return this->lastOutput;
 }
 
 void Node::connectInSequence(std::vector<Node*> nodes) {

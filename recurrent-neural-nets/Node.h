@@ -21,7 +21,8 @@ protected:
 	std::vector<Node*> nextNodes;
 	std::vector<std::vector<double>> inputVectors;
 	std::vector<std::vector<double>> outputErrorsVectors;
-	std::stack<std::vector<std::vector<double>>> outputVectorsHistory;
+	std::vector<std::vector<double>> lastOutput;
+	std::stack<std::vector<std::vector<double>>> lastInputVectors;
 	unsigned int inputStreamsNumber = 1;
 	unsigned int outputStreamsNumber = 1;
 };

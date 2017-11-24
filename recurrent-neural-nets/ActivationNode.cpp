@@ -3,6 +3,7 @@
 
 
 ActivationNode::ActivationNode(Callable* activationFunc, Callable* activationFuncDerivative) {
+	this->saveLastInputsVectors = true;
 	this->activationFunc = activationFunc;
 	this->activationFuncDerivative = activationFuncDerivative;
 }

@@ -3,6 +3,7 @@
 
 
 MulNode::MulNode() {
+	this->saveLastInputsVectors = true;
 	this->inputStreamsNumber = 2;
 	this->outputStreamsNumber = 1;
 }
@@ -26,8 +27,8 @@ std::vector<std::vector<double>> MulNode::processOutputErrors() {
 	result.push_back(std::vector<double>());
 	result.push_back(std::vector<double>());
 
-	std::vector<double> lastInput0 = this->prevNodes[0]->getLastOutput()[0];
-	std::vector<double> lastInput1 = this->prevNodes[1]->getLastOutput()[0];
+	std::vector<double> lastInput0 = this->lastInputVectors.top()[0];
+	std::vector<double> lastInput1 = this->lastInputVectors.top()[1];
 
 	result[0].reserve(this->outputErrorsVectors[0].size());
 	result[1].reserve(this->outputErrorsVectors[0].size());

@@ -16,7 +16,9 @@ void Node::propagate(std::vector<double> inputValues) {
 	this->inputVectors.push_back(inputValues);
 	if (this->inputVectors.size() == this->inputStreamsNumber) {
 		std::vector<std::vector<double>> resultVectors = this->processInputs();
-		this->lastInputVectors.push(this->inputVectors);
+		if (this->saveLastInputsVectors) {
+			this->lastInputVectors.push(this->inputVectors);
+		}
 		this->inputVectors.clear();
 		this->lastOutput = resultVectors;
 		for (int i = 0; i < this->nextNodes.size(); i++) {
@@ -30,7 +32,9 @@ void Node::backpropagate(std::vector<double> outputErrors) {
 	if (this->outputErrorsVectors.size() == this->outputStreamsNumber) {
 		std::vector<std::vector<double>> resultVectors = this->processOutputErrors();
 		this->outputErrorsVectors.clear();
-		this->lastInputVectors.pop();
+		if (this->saveLastInputsVectors) {
+			this->lastInputVectors.pop();
+		}
 		for (int i = 0; i < this->prevNodes.size(); i++) {
 			this->prevNodes[i]->backpropagate(resultVectors[i]);
 		}

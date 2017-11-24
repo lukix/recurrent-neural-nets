@@ -3,6 +3,7 @@
 
 
 WeightedSumsNode::WeightedSumsNode(int inputsCount, int outputsCount) {
+	this->saveLastInputsVectors = true;
 	this->weights.resize(outputsCount);
 	this->weightsErrors.resize(outputsCount);
 	for (int i = 0; i < outputsCount; i++) {

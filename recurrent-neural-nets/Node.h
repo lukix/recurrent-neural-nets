@@ -25,4 +25,5 @@ protected:
 	std::stack<std::vector<std::vector<double>>> lastInputVectors;
 	unsigned int inputStreamsNumber = 1;
 	unsigned int outputStreamsNumber = 1;
+	bool saveLastInputsVectors = false;
 };

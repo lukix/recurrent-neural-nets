@@ -5,7 +5,7 @@ class Node {
 public:
 	Node();
 	~Node();
-	void propagate(std::vector<double> inputValues);
+	void propagate(std::vector<double> inputValues, bool saveDataForBackprop = false);
 	void backpropagate(std::vector<double> outputErrors);
 	void connectOutput(Node* nextNode);
 	void connectInput(Node* prevNode);

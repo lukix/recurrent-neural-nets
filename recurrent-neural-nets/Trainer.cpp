@@ -39,7 +39,7 @@ void Trainer::train(double learningRate, double maxError, unsigned int maxIterat
 	for (int i = 0; i < maxIterations; i++) {
 		//Training
 		for (int j = 0; j < this->trainingDataSet.size(); j++) {
-			this->inputNode->propagate(this->trainingDataSet[j].inputs);
+			this->inputNode->propagate(this->trainingDataSet[j].inputs, true);
 			std::vector<double> result = this->outputNode->getLastOutput()[0];
 			std::vector<double> errors;
 			for (int k = 0; k < result.size(); k++) {

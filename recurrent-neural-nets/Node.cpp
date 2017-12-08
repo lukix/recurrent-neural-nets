@@ -12,17 +12,17 @@ Node::~Node() {
 	
 }
 
-void Node::propagate(std::vector<double> inputValues) {
+void Node::propagate(std::vector<double> inputValues, bool saveDataForBackprop) {
 	this->inputVectors.push_back(inputValues);
 	if (this->inputVectors.size() == this->inputStreamsNumber) {
 		std::vector<std::vector<double>> resultVectors = this->processInputs();
-		if (this->saveLastInputsVectors) {
+		if (saveDataForBackprop && this->saveLastInputsVectors) {
 			this->lastInputVectors.push(this->inputVectors);
 		}
 		this->inputVectors.clear();
 		this->lastOutput = resultVectors;
 		for (int i = 0; i < this->nextNodes.size(); i++) {
-			this->nextNodes[i]->propagate(resultVectors[i]);
+			this->nextNodes[i]->propagate(resultVectors[i], saveDataForBackprop);
 		}
 	}
 }
